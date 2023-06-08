@@ -3,9 +3,8 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs')
 const {
-  signup,
-  login,
-  User
+  registerUser,
+  loginUser
 } = require('../controllers/userController')
 const { protect } = require('../middleware/authMiddleware');
 
@@ -55,8 +54,8 @@ router.get('/',(req,res)=>{
   res.json(User);
 })
 
-router.post('/signup', signup)
-router.post('/login', login)
+router.post('/', registerUser)
+router.post('/login', loginUser)
 
 //logout
 router.get("/logout", (req, res) => {
