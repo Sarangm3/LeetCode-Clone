@@ -7,19 +7,15 @@ const User = require('../models/userModel')
 // @route   POST /signup
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const {name,email, password ,admin } = req.body
-
-  if (!name ||!email || !password) {
-    res.status(400)
-    throw new Error('Please add all fields')
-  }
+  const {name,email, password } = req.body
 
   // Check if user exists
-  const userExists = await User.findOne({ email })
-
-  if (userExists) {
+  const userExistsByEmail  = await User.findOne({ email })
+  const userExistByName = await User.findOne({ name })
+  if (userExistByName || userExistsByEmail) {
     res.status(400)
-    throw new Error('User already exists')
+    if(userExistsByEmail) throw new Error('Email already exists')
+    else if(userExistByName) throw new Error('Name already exists')
   }
 
   // Hash password
@@ -31,15 +27,13 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
-    admin,
   })
 
   if (user) {//this think go to front-end
     res.status(201).json({
       _id: user.id,
       email: user.email,
-      admin:user.admin,
-      token: generateToken(id,admin),
+      token: generateToken(user.id),
     })
   } else {
     res.status(400)
@@ -61,7 +55,6 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      admin:user.admin,
       token: generateToken(user.id),
     })
   } else {
@@ -73,9 +66,9 @@ const loginUser = asyncHandler(async (req, res) => {
 
 
 // Generate JWT
-const generateToken = (email,admin) => {
+const generateToken = (email) => {
 
-  return jwt.sign({ email, admin }, process.env.JWT_SECRET,   {
+  return jwt.sign({ email }, process.env.JWT_SECRET,   {
     expiresIn: '30d',
   })
   

@@ -1,10 +1,5 @@
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useSelector, useDispatch } from 'react-redux'
-// import GoalForm from '../components/GoalForm'
-// import GoalItem from '../components/GoalItem'
-// import Spinner from '../components/Spinner'
-// import { getGoals, reset } from '../features/goals/goalSlice'
+import Header from '../components/navbar/Header'
 import React from 'react'
 
 function Dashboard() {
@@ -12,9 +7,9 @@ function Dashboard() {
   
   return (
     <>
+      <Header />
       <section className='heading'>
-        {/* <h1>Welcome {user && user.name}</h1> */}
-        <p>code Basic</p>
+        <div className="flex items-center justify-between sm:px-12 px-2 md:px-24">hello world</div>
       </section>
     </>
   )
