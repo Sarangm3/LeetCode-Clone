@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from 'react'
-import Headers from '../../components/navbar/Header';
+import AuthNavbar from '../../components/navbar/AuthNavbar';
 import AuthModel from '../../components/models/AuthModel';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ function AuthPage() {
   return (
     <div className='bg-gradient-to-b from-gray-600 to-black h-screen relative'>
         <div className='max-w-5fxl mx-auto'>
-            <Headers/>
+            <AuthNavbar/>
             <div className="flex items-center justify-center h-[calc(100vh-5rem)] pointer-event-none select-none">
               <img src="/hero.png" alt="hero img" />
             </div>
