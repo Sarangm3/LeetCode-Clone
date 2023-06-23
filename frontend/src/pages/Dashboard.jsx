@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import DashboardNavbar from "../components/navbar/DashboardNavbar";
+import TopBar from "../components/navbar/TopBar";
 import ProblemsTable from "../components/ProblemsTable/ProblemTable";
 
 function Dashboard() {
@@ -9,7 +9,7 @@ function Dashboard() {
   return (
     <>
       <main className="bg-dark-layer-2 min-h-screen">
-        <DashboardNavbar />
+        <TopBar />
         <h1
           className="text-2xl text-center text-gray-700 dark:text-gray-400 font-medium
 					uppercase mt-10 mb-5"

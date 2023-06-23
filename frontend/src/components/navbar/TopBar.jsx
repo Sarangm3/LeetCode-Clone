@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { FiLogOut } from "react-icons/fi";
 import { logout, reset } from "../../features/auth/authSlice";
 import { setOpen } from "../../features/auth/authSlice";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { BsList } from "react-icons/bs";
 
-function DashboardNavbar() {
+function DashboardNavbar({ problemPage }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
@@ -20,13 +22,36 @@ function DashboardNavbar() {
     navigate("/");
   };
   return (
-    <nav className="relative flex h-[50px] w-full shrink-0 items-center sm:px-12 px-2 md:px-24 bg-dark-layer-1 text-dark-gray-7">
-      <div className="flex w-full items-center justify-between max-w-[1200px] mx-auto">
-        <Link href="/" className="flex items-center justify-center gap-2 h-20">
+    <nav className="relative flex h-[50px] w-full shrink-0 items-center px-5 bg-dark-layer-1 text-dark-gray-7">
+      <div
+        className={`flex w-full items-center justify-between ${
+          !problemPage ? "max-w-[1100px] mx-auto" : ""
+        }`}
+      >
+        <Link href="/" className="flex flex-1 items-center gap-2 h-20">
           <img src="/coding.svg" alt="codeBasic" className="h-1/4" />
           GoalSetter
         </Link>
-
+        {/* if it is in problem page then  */}
+        {problemPage && (
+          <div className="flex items-center gap-4 flex-1 justify-center">
+            <div className="flex items-center justify-center rounded dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer">
+              <FaChevronLeft />
+            </div>
+            <Link
+              to="/"
+              className="flex items-center gap-2 font-medium max-w-[170px] text-dark-gray-8 cursor-pointer"
+            >
+              <div>
+                <BsList />
+              </div>
+              <p>ProblemList</p>
+            </Link>
+            <div className="flex items-center justify-center rounded dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer">
+              <FaChevronRight />
+            </div>
+          </div>
+        )}
         <div className="flex items-center space-x-4 flex-1 justify-end">
           {!user && (
             <Link to="/auth">
