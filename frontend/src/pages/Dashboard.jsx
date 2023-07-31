@@ -55,17 +55,6 @@ function Dashboard() {
             <ProblemsTable />
           </table>
         </div>
-        {/* temp form */}
-        {/* <form className="p-6 flex flex-col max-w-sm gap-3">
-          <input type="text" placeholder="problem" name="id" />
-          <input type="text" placeholder="title" name="title" />
-          <input type="text" placeholder="difficulty" name="difficulty" />
-          <input type="text" placeholder="category" name="category" />
-          <input type="text" placeholder="order" name="order" />
-          <input type="text" placeholder="videoID?" name="videoID" />
-          <input type="text" placeholder="link?" name="link" />
-          <button className="bg-white">Save to db</button>
-        </form> */}
       </main>
     </>
   );
