@@ -6,6 +6,7 @@ import { logout, reset } from "../../features/auth/authSlice";
 import { setOpen } from "../../features/auth/authSlice";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
+import Timer from "../timer/timer";
 
 function DashboardNavbar({ problemPage }) {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function DashboardNavbar({ problemPage }) {
           !problemPage ? "max-w-[1100px] mx-auto" : ""
         }`}
       >
-        <Link href="/" className="flex flex-1 items-center gap-2 h-20">
+        <Link to="/" className="flex flex-1 items-center gap-2 h-20">
           <img src="/coding.svg" alt="codeBasic" className="h-1/4" />
           GoalSetter
         </Link>
@@ -63,6 +64,7 @@ function DashboardNavbar({ problemPage }) {
               </button>
             </Link>
           )}
+          {problemPage && <Timer />}
           {user && (
             <div className="curser-pointer group relative">
               <img

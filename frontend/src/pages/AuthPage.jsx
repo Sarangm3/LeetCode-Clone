@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AuthNavbar from "../components/navbar/AuthNavbar";
-import AuthModel from "../components/models/AuthModel";
+import AuthModel from "../components/authmodels/AuthModel";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
