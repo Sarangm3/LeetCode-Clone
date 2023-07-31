@@ -5,7 +5,6 @@ import { TiStarOutline } from "react-icons/ti";
 import { index } from "d3";
 
 function ProblemDescription({ problem }) {
-  console.log(problem);
   return (
     <div className="bg-dark-layer-1">
       {/* TAB */}
