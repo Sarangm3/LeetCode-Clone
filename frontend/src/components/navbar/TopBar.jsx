@@ -30,8 +30,7 @@ function DashboardNavbar({ problemPage }) {
         }`}
       >
         <Link to="/" className="flex flex-1 items-center gap-2 h-20">
-          <img src="/coding.svg" alt="codeBasic" className="h-1/4" />
-          GoalSetter
+          <img src="/logo-full.png" alt="logo" className="h-1/4" />
         </Link>
         {/* if it is in problem page then  */}
         {problemPage && (

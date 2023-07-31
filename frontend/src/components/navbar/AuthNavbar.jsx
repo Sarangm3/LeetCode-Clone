@@ -16,8 +16,7 @@ function Header() {
         to="/"
         className="flex items-center justify-center gap-2 h-20 text-dark-gray-7"
       >
-        <img src="/coding.svg" alt="codeBasic" className="h-1/4" />
-        GoalSetter
+        <img src="/logo.png" alt="LeetClone" height={200} width={200} />
       </Link>
       <ul>
         <div className="flex items-center">
