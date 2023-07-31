@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use("/api/users", require("./backend/routes/userRoutes"));
-app.use(express.static(path.join(__dirname, "./frontend/dist")));
+app.use(express.static(path.join(__dirname, "./frontend/LeetClone/dist")));
 app.get("*", function (req, res) {
   res.sendFile(
-    path.join(__dirname, "./frontend/dist/index.html"),
+    path.join(__dirname, "./frontend/dist/LeetClone/index.html"),
     function (err) {
       res.status(500).send(err);
     }
