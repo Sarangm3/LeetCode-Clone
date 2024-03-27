@@ -6,7 +6,7 @@ import { logout, reset } from "../../features/auth/authSlice";
 import { setOpen } from "../../features/auth/authSlice";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
-import Timer from "../timer/timer";
+import Timer from "../timer/Timer";
 
 function DashboardNavbar({ problemPage }) {
   const navigate = useNavigate();

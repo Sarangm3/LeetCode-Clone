@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TopBar from "../components/navbar/TopBar";
-import WorkSpace from "../components/workSpace/workSpace";
+import WorkSpace from "../components/workSpace/WorkSpace";
 import { useParams } from "react-router-dom";
 import { problems } from "../utils/problems";
 
